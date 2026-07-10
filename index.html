@@ -27,6 +27,7 @@
       align-items: center;
       position: relative;
       overflow-x: hidden;
+      transition: background 0.3s, color 0.3s;
     }
 
     #rain-canvas {
@@ -38,6 +39,7 @@
       z-index: 0;
       pointer-events: none;
       opacity: 0.7;
+      transition: filter 0.3s;
     }
 
     .container {
@@ -54,6 +56,7 @@
       padding: 6px 6px 20px 6px;
       border: 1px solid rgba(76, 139, 245, 0.06);
       box-shadow: 0 0 80px rgba(47, 110, 212, 0.03);
+      transition: background 0.3s, border-color 0.3s, box-shadow 0.3s;
     }
 
     /* TABS */
@@ -100,9 +103,10 @@
       left: 20%;
       width: 60%;
       height: 3px;
-      background: #6aafff;
+      background: var(--accent, #6aafff);
       border-radius: 4px;
-      box-shadow: 0 0 30px rgba(76, 139, 245, 0.6);
+      box-shadow: 0 0 30px var(--accent-glow, rgba(76, 139, 245, 0.6));
+      transition: background 0.3s, box-shadow 0.3s;
     }
 
     .tab-content {
@@ -139,9 +143,9 @@
       align-items: center;
       justify-content: center;
       font-size: 2.2rem;
-      color: #6aafff;
+      color: var(--accent, #6aafff);
       border: 1px solid rgba(47, 63, 94, 0.3);
-      box-shadow: 0 0 40px rgba(76, 139, 245, 0.08);
+      box-shadow: 0 0 40px var(--accent-glow, rgba(76, 139, 245, 0.08));
       transition: 0.2s;
       cursor: default;
       user-select: none;
@@ -151,11 +155,11 @@
       font-size: 2.6rem;
       font-weight: 700;
       letter-spacing: -0.5px;
-      background: linear-gradient(145deg, #c8ddff, #6aafff);
+      background: linear-gradient(145deg, #c8ddff, var(--accent, #6aafff));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      text-shadow: 0 0 60px rgba(76, 139, 245, 0.1);
+      text-shadow: 0 0 60px var(--accent-glow, rgba(76, 139, 245, 0.1));
     }
 
     .hub-badge {
@@ -252,15 +256,15 @@
     }
 
     .hub-extra .stat:hover {
-      border-color: #6aafff;
-      box-shadow: 0 0 30px rgba(76, 139, 245, 0.05);
+      border-color: var(--accent, #6aafff);
+      box-shadow: 0 0 30px var(--accent-glow, rgba(76, 139, 245, 0.05));
     }
 
     .hub-extra .stat i {
-      color: #6aafff;
+      color: var(--accent, #6aafff);
       font-size: 1.6rem;
       margin-bottom: 4px;
-      text-shadow: 0 0 30px rgba(76, 139, 245, 0.15);
+      text-shadow: 0 0 30px var(--accent-glow, rgba(76, 139, 245, 0.15));
     }
 
     .hub-extra .stat span {
@@ -298,14 +302,14 @@
     }
 
     .shop-card:hover {
-      border-color: #6aafff;
+      border-color: var(--accent, #6aafff);
       transform: translateY(-4px);
-      box-shadow: 0 12px 50px rgba(76, 139, 245, 0.1);
+      box-shadow: 0 12px 50px var(--accent-glow, rgba(76, 139, 245, 0.1));
     }
 
     .shop-card .icon {
       font-size: 2.8rem;
-      color: #6aafff;
+      color: var(--accent, #6aafff);
       background: rgba(26, 37, 59, 0.4);
       width: 70px;
       height: 70px;
@@ -315,7 +319,7 @@
       justify-content: center;
       margin-bottom: 16px;
       border: 1px solid rgba(47, 63, 94, 0.3);
-      box-shadow: 0 0 40px rgba(76, 139, 245, 0.05);
+      box-shadow: 0 0 40px var(--accent-glow, rgba(76, 139, 245, 0.05));
     }
 
     .shop-card h3 {
@@ -338,9 +342,9 @@
     .shop-card .price {
       font-size: 1.6rem;
       font-weight: 700;
-      color: #6aafff;
+      color: var(--accent, #6aafff);
       margin: 8px 0 16px;
-      text-shadow: 0 0 30px rgba(76, 139, 245, 0.1);
+      text-shadow: 0 0 30px var(--accent-glow, rgba(76, 139, 245, 0.1));
     }
 
     .shop-card .price small {
@@ -350,7 +354,7 @@
     }
 
     .shop-card .btn-shop {
-      background: #2f6ed4;
+      background: var(--accent, #2f6ed4);
       border: none;
       padding: 12px 32px;
       border-radius: 60px;
@@ -366,13 +370,13 @@
       font-family: 'Inter', sans-serif;
       width: 100%;
       justify-content: center;
-      box-shadow: 0 0 30px rgba(47, 110, 212, 0.1);
+      box-shadow: 0 0 30px var(--accent-glow, rgba(47, 110, 212, 0.1));
     }
 
     .shop-card .btn-shop:hover {
-      background: #1f5bbc;
+      filter: brightness(0.85);
       transform: scale(1.02);
-      box-shadow: 0 8px 40px rgba(47, 110, 212, 0.25);
+      box-shadow: 0 8px 40px var(--accent-glow, rgba(47, 110, 212, 0.25));
     }
 
     /* OBFUSCATOR */
@@ -392,6 +396,10 @@
       align-items: center;
       gap: 12px;
       color: #e8edf5;
+    }
+
+    .obf-header h2 i {
+      color: var(--accent, #6aafff);
     }
 
     .obf-header .badge {
@@ -441,6 +449,10 @@
       letter-spacing: 0.3px;
     }
 
+    .panel-head i {
+      color: var(--accent, #6aafff);
+    }
+
     .panel-head .count {
       background: rgba(26, 37, 59, 0.4);
       padding: 3px 12px;
@@ -469,7 +481,7 @@
     }
 
     textarea#input {
-      caret-color: #6aafff;
+      caret-color: var(--accent, #6aafff);
     }
 
     textarea#output {
@@ -486,6 +498,10 @@
       color: #7b8aa8;
       background: rgba(6, 12, 24, 0.4);
       border-radius: 0 0 16px 16px;
+    }
+
+    .meta-row i {
+      color: var(--accent, #6aafff);
     }
 
     .controls {
@@ -529,20 +545,20 @@
 
     button:hover {
       background: rgba(37, 52, 79, 0.4);
-      border-color: #6aafff;
+      border-color: var(--accent, #6aafff);
       color: #ffffff;
     }
 
     .btn-main {
-      background: #2f6ed4;
-      border: 1px solid #2f6ed4;
+      background: var(--accent, #2f6ed4);
+      border: 1px solid var(--accent, #2f6ed4);
       color: white;
-      box-shadow: 0 0 30px rgba(47, 110, 212, 0.1);
+      box-shadow: 0 0 30px var(--accent-glow, rgba(47, 110, 212, 0.1));
     }
 
     .btn-main:hover {
-      background: #1f5bbc;
-      box-shadow: 0 6px 30px rgba(47, 110, 212, 0.25);
+      filter: brightness(0.85);
+      box-shadow: 0 6px 30px var(--accent-glow, rgba(47, 110, 212, 0.25));
     }
 
     .btn-copy {
@@ -576,7 +592,7 @@
     }
 
     input[type="checkbox"] {
-      accent-color: #6aafff;
+      accent-color: var(--accent, #6aafff);
       width: 16px;
       height: 16px;
       background: rgba(10, 18, 35, 0.7);
@@ -625,7 +641,7 @@
     }
 
     .footer-note b {
-      color: #8eb4f0;
+      color: var(--accent, #8eb4f0);
     }
 
     .mt-2 {
@@ -636,202 +652,60 @@
       color: #5865f2;
     }
 
-    /* LOGS TAB */
-    .logs-container {
-      padding: 10px 0;
-    }
-
-    .log-entry {
-      background: rgba(14, 24, 44, 0.4);
-      border: 1px solid rgba(42, 59, 88, 0.2);
-      border-radius: 12px;
-      padding: 14px 18px;
-      margin-bottom: 10px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.8rem;
-    }
-
-    .log-entry .ip {
-      color: #6aafff;
-      font-weight: 600;
-    }
-
-    .log-entry .time {
-      color: #7b8aa8;
-      font-size: 0.7rem;
-    }
-
-    .log-entry .script-preview {
-      color: #b0c4e0;
-      font-size: 0.75rem;
-      max-width: 300px;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-    }
-
-    .log-entry .badge-success {
-      background: rgba(76, 175, 80, 0.2);
-      color: #66bb6a;
-      padding: 2px 12px;
-      border-radius: 40px;
-      font-size: 0.65rem;
-      border: 1px solid rgba(76, 175, 80, 0.2);
-    }
-
-    .logs-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
+    /* SETTINGS TAB */
+    .settings-card {
+      background: rgba(14, 24, 44, 0.5);
+      border: 1px solid rgba(42, 59, 88, 0.3);
+      border-radius: 20px;
+      padding: 24px 28px;
       margin-bottom: 20px;
+      display: flex;
       flex-wrap: wrap;
+      align-items: center;
+      gap: 24px;
+      backdrop-filter: blur(4px);
+    }
+
+    .settings-card label {
+      font-weight: 500;
+      color: #b0c4e0;
+      display: flex;
+      align-items: center;
       gap: 12px;
     }
 
-    .logs-header .back-btn {
-      background: rgba(26, 37, 59, 0.4);
-      border: 1px solid rgba(47, 63, 94, 0.3);
-      padding: 8px 20px;
-      border-radius: 40px;
-      color: #b0c4e0;
-      cursor: pointer;
-      transition: 0.15s;
-      font-size: 0.8rem;
-      font-family: 'Inter', sans-serif;
+    .settings-card label i {
+      color: var(--accent, #6aafff);
     }
 
-    .logs-header .back-btn:hover {
-      border-color: #6aafff;
-      color: #ffffff;
-      background: rgba(37, 52, 79, 0.4);
-    }
-
-    .logs-header .log-count {
-      color: #7b8aa8;
-      font-size: 0.8rem;
-    }
-
-    .no-logs {
-      color: #7b8aa8;
-      text-align: center;
-      padding: 40px 0;
-      font-size: 0.95rem;
-    }
-
-    /* Password Modal */
-    .password-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.8);
-      z-index: 999;
-      display: none;
-      align-items: center;
-      justify-content: center;
-      backdrop-filter: blur(8px);
-    }
-
-    .password-overlay.active {
+    .color-picker-group {
       display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
     }
 
-    .password-modal {
-      background: rgba(10, 16, 30, 0.95);
-      border: 1px solid rgba(42, 59, 88, 0.4);
-      border-radius: 24px;
-      padding: 40px 36px;
-      max-width: 400px;
-      width: 90%;
-      text-align: center;
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.6);
-    }
-
-    .password-modal .lock-icon {
-      font-size: 3rem;
-      color: #6aafff;
-      margin-bottom: 12px;
-    }
-
-    .password-modal h3 {
-      color: #e8edf5;
-      font-size: 1.3rem;
-      margin-bottom: 6px;
-    }
-
-    .password-modal p {
-      color: #7b8aa8;
-      font-size: 0.85rem;
-      margin-bottom: 20px;
-    }
-
-    .password-modal input {
-      width: 100%;
-      padding: 12px 16px;
-      background: rgba(14, 24, 44, 0.6);
-      border: 1px solid rgba(47, 63, 94, 0.3);
-      border-radius: 12px;
-      color: #e8edf5;
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.9rem;
-      outline: none;
-      transition: 0.2s;
-      margin-bottom: 14px;
-    }
-
-    .password-modal input:focus {
-      border-color: #6aafff;
-      box-shadow: 0 0 30px rgba(76, 139, 245, 0.1);
-    }
-
-    .password-modal .btn-unlock {
-      background: #2f6ed4;
-      border: none;
-      padding: 12px 32px;
-      border-radius: 60px;
-      font-weight: 600;
-      font-size: 0.9rem;
-      color: white;
+    .color-swatch {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      border: 2px solid transparent;
       cursor: pointer;
-      transition: 0.15s ease;
-      width: 100%;
-      font-family: 'Inter', sans-serif;
-    }
-
-    .password-modal .btn-unlock:hover {
-      background: #1f5bbc;
-      box-shadow: 0 8px 30px rgba(47, 110, 212, 0.3);
-    }
-
-    .password-modal .error-msg {
-      color: #ef5350;
-      font-size: 0.8rem;
-      margin-top: 8px;
-      display: none;
-    }
-
-    .password-modal .error-msg.show {
-      display: block;
-    }
-
-    /* Shield trigger in shop footer */
-    .shield-trigger {
-      cursor: pointer;
-      display: inline-block;
       transition: 0.2s;
+      box-shadow: 0 0 12px rgba(0,0,0,0.3);
+    }
+    .color-swatch:hover { transform: scale(1.1); }
+    .color-swatch.active-swatch { border-color: #ffffff; box-shadow: 0 0 20px rgba(255,255,255,0.3); }
+
+    .theme-preview {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+      font-size: 0.9rem;
+      color: #8ea4c9;
     }
 
-    .shield-trigger:hover {
-      transform: scale(1.15);
-      text-shadow: 0 0 30px rgba(76, 139, 245, 0.4);
-    }
-
+    /* responsive */
     @media (max-width: 600px) {
       .tabs .tab-btn {
         padding: 10px 14px;
@@ -852,10 +726,6 @@
       .hub-header h1 {
         font-size: 1.8rem;
       }
-      .log-entry {
-        flex-direction: column;
-        align-items: flex-start;
-      }
     }
   </style>
 </head>
@@ -864,27 +734,14 @@
   <!-- CYBER RAIN CANVAS -->
   <canvas id="rain-canvas"></canvas>
 
-  <!-- PASSWORD OVERLAY -->
-  <div class="password-overlay" id="passwordOverlay">
-    <div class="password-modal">
-      <div class="lock-icon"><i class="fas fa-lock"></i></div>
-      <h3>🔐 Admin Access</h3>
-      <p>Enter the password to view the logs</p>
-      <input type="password" id="passwordInput" placeholder="Enter password..." autocomplete="off">
-      <button class="btn-unlock" id="unlockBtn"><i class="fas fa-unlock-alt" style="margin-right: 8px;"></i> Unlock</button>
-      <div class="error-msg" id="errorMsg">❌ Incorrect password. Try again.</div>
-    </div>
-  </div>
-
   <div class="container">
-    <div class="glow-container">
+    <div class="glow-container" id="glowContainer">
       <!-- TABS -->
       <div class="tabs">
         <button class="tab-btn active" data-tab="hub"><i class="fas fa-home" style="margin-right: 8px;"></i> MWP Hub</button>
         <button class="tab-btn" data-tab="shop"><i class="fas fa-store" style="margin-right: 8px;"></i> Shop</button>
         <button class="tab-btn" data-tab="obf"><i class="fas fa-lock" style="margin-right: 8px;"></i> My Obfuscator</button>
-        <!-- Hidden logs tab - only shown after password -->
-        <button class="tab-btn" data-tab="logs" id="logsTab" style="display:none;"><i class="fas fa-lock"></i></button>
+        <button class="tab-btn" data-tab="settings"><i class="fas fa-sliders-h" style="margin-right: 8px;"></i> Settings</button>
       </div>
 
       <!-- TAB 1: HUB -->
@@ -902,7 +759,7 @@
             <i class="fab fa-discord"></i>
             <div>
               <h3>Join our Discord</h3>
-              <p><i class="fas fa-users" style="margin-right: 6px; color: #6aafff;"></i> 100k+ members · scripts, support.</p>
+              <p><i class="fas fa-users" style="margin-right: 6px; color: var(--accent, #6aafff);"></i> 100k+ members · scripts, support.</p>
             </div>
           </div>
           <a href="https://discord.gg/bUzzxNjuMh" target="_blank" class="btn-discord">
@@ -928,14 +785,14 @@
           </div>
         </div>
         <p style="color: #7b8aa8; font-size: 0.9rem; margin-top: 20px; border-top: 1px solid rgba(31, 43, 65, 0.4); padding-top: 18px;">
-          <i class="fas fa-check-circle" style="color: #6aafff;"></i> All scripts are obfuscated with our own tool (see "My Obfuscator" tab). Nothing is stored.
+          <i class="fas fa-check-circle" style="color: var(--accent, #6aafff);"></i> All scripts are obfuscated with our own tool (see "My Obfuscator" tab). Nothing is stored.
         </p>
       </div>
 
       <!-- TAB 2: SHOP -->
       <div id="tab-shop" class="tab-content">
         <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px; flex-wrap: wrap;">
-          <i class="fas fa-shopping-cart" style="font-size: 2rem; color: #6aafff; text-shadow: 0 0 40px rgba(76, 139, 245, 0.15);"></i>
+          <i class="fas fa-shopping-cart" style="font-size: 2rem; color: var(--accent, #6aafff); text-shadow: 0 0 40px var(--accent-glow, rgba(76, 139, 245, 0.15));"></i>
           <h2 style="font-weight: 600; font-size: 1.8rem; color: #e8edf5;">MWP Store</h2>
           <span class="hub-badge" style="margin-left: 0;"><i class="fas fa-bolt" style="margin-right: 4px;"></i> instant delivery</span>
         </div>
@@ -971,9 +828,8 @@
             </a>
           </div>
         </div>
-
         <p style="color: #7b8aa8; font-size: 0.85rem; margin-top: 16px; border-top: 1px solid rgba(31, 43, 65, 0.4); padding-top: 16px;">
-          <span class="shield-trigger" id="shieldTrigger"><i class="fas fa-shield-alt" style="color: #6aafff; margin-right: 6px;"></i></span>
+          <i class="fas fa-shield-alt" style="color: var(--accent, #6aafff); margin-right: 6px;"></i>
           All purchases are processed securely through SellAuth. Instant delivery after payment.
         </p>
       </div>
@@ -981,7 +837,7 @@
       <!-- TAB 3: OBFUSCATOR -->
       <div id="tab-obf" class="tab-content">
         <div class="obf-header">
-          <h2><i class="fas fa-key" style="color: #6aafff;"></i> MWP'S OBFUSCATOR <span style="font-size: 0.9rem; font-weight: 400; color: #7b8aa8;">· Roblox Lua</span></h2>
+          <h2><i class="fas fa-key"></i> MWP'S OBFUSCATOR <span style="font-size: 0.9rem; font-weight: 400; color: #7b8aa8;">· Roblox Lua</span></h2>
           <span class="badge"><i class="fas fa-lock" style="margin-right: 4px;"></i> CLIENT-SIDE</span>
         </div>
 
@@ -1027,28 +883,46 @@
         </div>
       </div>
 
-      <!-- TAB 4: LOGS (hidden until password) -->
-      <div id="tab-logs" class="tab-content">
-        <div class="logs-header">
-          <div>
-            <h2 style="font-weight: 600; font-size: 1.5rem; color: #e8edf5; display: flex; align-items: center; gap: 10px;">
-              <i class="fas fa-clipboard-list" style="color: #6aafff;"></i> Obfuscation Logs
-            </h2>
+      <!-- TAB 4: SETTINGS -->
+      <div id="tab-settings" class="tab-content">
+        <div style="display: flex; align-items: center; gap: 14px; margin-bottom: 24px; flex-wrap: wrap;">
+          <i class="fas fa-palette" style="font-size: 2rem; color: var(--accent, #6aafff); text-shadow: 0 0 40px var(--accent-glow, rgba(76, 139, 245, 0.15));"></i>
+          <h2 style="font-weight: 600; font-size: 1.8rem; color: #e8edf5;">Theme Customizer</h2>
+          <span class="hub-badge" style="margin-left: 0;"><i class="fas fa-magic" style="margin-right: 4px;"></i> pick your color</span>
+        </div>
+
+        <div class="settings-card">
+          <label><i class="fas fa-fill-drip"></i> Accent Color</label>
+          <div class="color-picker-group" id="colorSwatches">
+            <div class="color-swatch active-swatch" style="background: #6aafff;" data-color="#6aafff" data-name="Blue"></div>
+            <div class="color-swatch" style="background: #ff6b8a;" data-color="#ff6b8a" data-name="Pink"></div>
+            <div class="color-swatch" style="background: #7bed9f;" data-color="#7bed9f" data-name="Green"></div>
+            <div class="color-swatch" style="background: #ffda79;" data-color="#ffda79" data-name="Yellow"></div>
+            <div class="color-swatch" style="background: #a29bfe;" data-color="#a29bfe" data-name="Purple"></div>
+            <div class="color-swatch" style="background: #ff7675;" data-color="#ff7675" data-name="Red"></div>
           </div>
-          <div style="display: flex; gap: 12px; align-items: center;">
-            <span class="log-count" id="logCount">0 entries</span>
-            <button class="back-btn" id="backFromLogs"><i class="fas fa-arrow-left" style="margin-right: 6px;"></i> Back</button>
+          <div class="theme-preview">
+            <span id="currentThemeLabel">Current: Blue</span>
           </div>
         </div>
-        <div class="logs-container" id="logsContainer">
-          <div class="no-logs">No obfuscation logs yet.</div>
+
+        <div class="settings-card">
+          <label><i class="fas fa-cloud-rain"></i> Rain Effect</label>
+          <div style="display: flex; gap: 16px; align-items: center;">
+            <label style="font-weight: 400;"><input type="radio" name="rainToggle" value="on" checked> On</label>
+            <label style="font-weight: 400;"><input type="radio" name="rainToggle" value="off"> Off</label>
+          </div>
         </div>
+
+        <p style="color: #7b8aa8; font-size: 0.85rem; margin-top: 8px; border-top: 1px solid rgba(31, 43, 65, 0.4); padding-top: 16px;">
+          <i class="fas fa-sync-alt" style="color: var(--accent, #6aafff); margin-right: 6px;"></i> Changes apply instantly. Your preference is saved locally.
+        </p>
       </div>
     </div>
   </div>
 
   <script>
-    // ------- CYBER RAIN CANVAS -------
+    // ------- CYBER RAIN CANVAS (with dynamic color) -------
     (function() {
       const canvas = document.getElementById('rain-canvas');
       const ctx = canvas.getContext('2d');
@@ -1056,6 +930,7 @@
       let width, height;
       let drops = [];
       const MAX_DROPS = 220;
+      let currentRainColor = { r: 130, g: 200, b: 255 }; // default blue
 
       function resize() {
         width = canvas.width = window.innerWidth;
@@ -1076,7 +951,6 @@
           this.length = 12 + Math.random() * 32;
           this.speed = 5 + Math.random() * 10;
           this.opacity = 0.25 + Math.random() * 0.5;
-          this.hue = 210 + Math.random() * 15;
           this.thickness = 1 + Math.random() * 2.5;
           this.glow = 0.5 + Math.random() * 0.8;
         }
@@ -1090,34 +964,35 @@
         }
 
         draw() {
+          const { r, g, b } = currentRainColor;
           const gradient = ctx.createLinearGradient(this.x, this.y - this.length, this.x, this.y);
-          gradient.addColorStop(0, `rgba(120, 200, 255, 0)`);
-          gradient.addColorStop(0.2, `rgba(100, 180, 255, ${this.opacity * 0.3})`);
-          gradient.addColorStop(0.6, `rgba(80, 160, 255, ${this.opacity * 0.6})`);
-          gradient.addColorStop(1, `rgba(160, 220, 255, ${this.opacity})`);
+          gradient.addColorStop(0, `rgba(${r}, ${g}, ${b}, 0)`);
+          gradient.addColorStop(0.2, `rgba(${r}, ${g}, ${b}, ${this.opacity * 0.3})`);
+          gradient.addColorStop(0.6, `rgba(${r}, ${g}, ${b}, ${this.opacity * 0.6})`);
+          gradient.addColorStop(1, `rgba(${r+40}, ${g+40}, ${b+40}, ${this.opacity})`);
 
           ctx.beginPath();
           ctx.moveTo(this.x, this.y - this.length);
           ctx.lineTo(this.x, this.y);
           ctx.strokeStyle = gradient;
           ctx.lineWidth = this.thickness;
-          ctx.shadowColor = `rgba(130, 200, 255, ${this.glow * 0.4})`;
+          ctx.shadowColor = `rgba(${r}, ${g}, ${b}, ${this.glow * 0.4})`;
           ctx.shadowBlur = 18;
           ctx.stroke();
 
           ctx.shadowBlur = 30;
-          ctx.shadowColor = `rgba(180, 230, 255, ${this.glow * 0.3})`;
+          ctx.shadowColor = `rgba(${r+50}, ${g+50}, ${b+50}, ${this.glow * 0.3})`;
           ctx.beginPath();
           ctx.arc(this.x, this.y, 1.5 * this.thickness, 0, Math.PI * 2);
-          ctx.fillStyle = `rgba(200, 240, 255, ${this.opacity * 0.7})`;
+          ctx.fillStyle = `rgba(${r+70}, ${g+70}, ${b+70}, ${this.opacity * 0.7})`;
           ctx.fill();
 
           if (Math.random() < 0.03) {
             ctx.shadowBlur = 40;
-            ctx.shadowColor = `rgba(180, 230, 255, ${this.glow * 0.2})`;
+            ctx.shadowColor = `rgba(${r+50}, ${g+50}, ${b+50}, ${this.glow * 0.2})`;
             ctx.beginPath();
             ctx.arc(this.x, this.y - 5, 3, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(200, 240, 255, ${this.opacity * 0.15})`;
+            ctx.fillStyle = `rgba(${r+70}, ${g+70}, ${b+70}, ${this.opacity * 0.15})`;
             ctx.fill();
           }
 
@@ -1129,6 +1004,8 @@
         drops.push(new Drop());
       }
 
+      let rainActive = true;
+
       function animate() {
         ctx.clearRect(0, 0, width, height);
 
@@ -1138,219 +1015,103 @@
         ctx.fillStyle = grad;
         ctx.fillRect(0, 0, width, height);
 
-        for (const drop of drops) {
-          drop.update();
-          drop.draw();
+        if (rainActive) {
+          for (const drop of drops) {
+            drop.update();
+            drop.draw();
+          }
         }
 
         requestAnimationFrame(animate);
       }
 
       animate();
-    })();
 
-    // ------- LOGS SYSTEM (Persistent in localStorage) -------
-    let logs = [];
-    let isUnlocked = false;
-
-    // ---------- OBFUSCATED PASSWORD ----------
-    // The password is "REDACTED" but stored in a way that's not plaintext in source
-    const _p = [77, 87, 80, 72, 85, 66, 76, 79, 71, 83];
-    const _key = 0x55;
-    const _pwChars = _p.map(c => c ^ _key);
-
-    function getPassword() {
-      return _pwChars.map(c => String.fromCharCode(c ^ _key)).join('');
-    }
-
-    const CORRECT_PASSWORD = getPassword();
-
-    function loadLogs() {
-      try {
-        const saved = localStorage.getItem('mwp_obfuscation_logs');
-        if (saved) {
-          logs = JSON.parse(saved);
-          console.log('Logs loaded from localStorage:', logs.length, 'entries');
-        } else {
-          logs = [];
-          console.log('No logs found in localStorage');
-        }
-      } catch (e) {
-        console.error('Error loading logs:', e);
-        logs = [];
-      }
-    }
-
-    function saveLogs() {
-      try {
-        localStorage.setItem('mwp_obfuscation_logs', JSON.stringify(logs));
-        console.log('Logs saved to localStorage:', logs.length, 'entries');
-      } catch (e) {
-        console.error('Error saving logs:', e);
-      }
-    }
-
-    function getIP() {
-      return new Promise((resolve) => {
-        fetch('https://ipapi.co/json/')
-          .then(res => {
-            if (!res.ok) throw new Error('API failed');
-            return res.json();
-          })
-          .then(data => {
-            if (data && data.ip) {
-              resolve(data.ip);
-            } else {
-              resolve('Unknown');
-            }
-          })
-          .catch(() => {
-            fetch('https://api.ipify.org?format=json')
-              .then(res => res.json())
-              .then(data => {
-                if (data && data.ip) {
-                  resolve(data.ip);
-                } else {
-                  resolve('Unknown');
-                }
-              })
-              .catch(() => {
-                resolve('Unknown');
-              });
-          });
-      });
-    }
-
-    function addLogEntry(scriptPreview) {
-      getIP().then(ip => {
-        const entry = {
-          ip: ip,
-          timestamp: new Date().toLocaleString(),
-          scriptPreview: scriptPreview.substring(0, 100) + (scriptPreview.length > 100 ? '...' : ''),
-          fullScript: scriptPreview
-        };
-        logs.unshift(entry);
-        if (logs.length > 100) logs.pop();
-        saveLogs();
-        renderLogs();
-      });
-    }
-
-    function renderLogs() {
-      const container = document.getElementById('logsContainer');
-      const count = document.getElementById('logCount');
-
-      if (!container) return;
-
-      if (logs.length === 0) {
-        container.innerHTML = '<div class="no-logs">No obfuscation logs yet.</div>';
-        count.textContent = '0 entries';
-        return;
-      }
-
-      count.textContent = `${logs.length} entries`;
-
-      let html = '';
-      for (const log of logs) {
-        html += `
-          <div class="log-entry">
-            <span class="ip"><i class="fas fa-network-wired" style="margin-right: 6px;"></i>${log.ip}</span>
-            <span class="script-preview">${escapeHtml(log.scriptPreview)}</span>
-            <span class="badge-success">obfuscated</span>
-            <span class="time"><i class="far fa-clock" style="margin-right: 4px;"></i>${log.timestamp}</span>
-          </div>
-        `;
-      }
-      container.innerHTML = html;
-    }
-
-    function escapeHtml(text) {
-      const div = document.createElement('div');
-      div.textContent = text;
-      return div.innerHTML;
-    }
-
-    // ------- PASSWORD SYSTEM -------
-    const overlay = document.getElementById('passwordOverlay');
-    const passwordInput = document.getElementById('passwordInput');
-    const unlockBtn = document.getElementById('unlockBtn');
-    const errorMsg = document.getElementById('errorMsg');
-    const logsTab = document.getElementById('logsTab');
-    const backFromLogs = document.getElementById('backFromLogs');
-
-    // SHIELD trigger in shop footer
-    const shieldTrigger = document.getElementById('shieldTrigger');
-
-    function showPasswordPrompt() {
-      overlay.classList.add('active');
-      passwordInput.value = '';
-      errorMsg.classList.remove('show');
-      passwordInput.focus();
-    }
-
-    function attemptUnlock() {
-      const entered = passwordInput.value.trim();
-      if (entered === CORRECT_PASSWORD) {
-        isUnlocked = true;
-        overlay.classList.remove('active');
-        logsTab.style.display = 'inline-block';
-        switchTab('logs');
-        renderLogs();
-        const count = document.getElementById('logCount');
-        count.textContent = `${logs.length} entries`;
-      } else {
-        errorMsg.classList.add('show');
-        passwordInput.value = '';
-        passwordInput.focus();
-      }
-    }
-
-    function switchTab(tabId) {
-      const tabs = document.querySelectorAll('.tab-btn');
-      const contents = {
-        hub: document.getElementById('tab-hub'),
-        shop: document.getElementById('tab-shop'),
-        obf: document.getElementById('tab-obf'),
-        logs: document.getElementById('tab-logs')
+      // Expose rain control and color updater
+      window.setRainActive = function(val) {
+        rainActive = val;
       };
 
-      tabs.forEach(btn => {
-        btn.classList.remove('active');
-        if (btn.dataset.tab === tabId) {
-          btn.classList.add('active');
-        }
-      });
+      window.setRainColor = function(hex) {
+        // Convert hex to rgb
+        const r = parseInt(hex.slice(1,3), 16);
+        const g = parseInt(hex.slice(3,5), 16);
+        const b = parseInt(hex.slice(5,7), 16);
+        currentRainColor = { r, g, b };
+      };
 
-      Object.keys(contents).forEach(key => {
-        contents[key].classList.toggle('active', key === tabId);
-      });
-    }
+    })();
 
-    // Shield click triggers the password prompt
-    if (shieldTrigger) {
-      shieldTrigger.addEventListener('click', function(e) {
-        e.stopPropagation();
-        showPasswordPrompt();
-      });
-    }
+    // ------- THEME SYSTEM -------
+    const accentColors = {
+      '#6aafff': 'Blue',
+      '#ff6b8a': 'Pink',
+      '#7bed9f': 'Green',
+      '#ffda79': 'Yellow',
+      '#a29bfe': 'Purple',
+      '#ff7675': 'Red'
+    };
 
-    // Unlock button
-    unlockBtn.addEventListener('click', attemptUnlock);
-    passwordInput.addEventListener('keydown', (e) => {
-      if (e.key === 'Enter') attemptUnlock();
-    });
+    let currentAccent = '#6aafff';
 
-    // Back button from logs
-    backFromLogs.addEventListener('click', () => {
-      switchTab('hub');
-    });
+    function applyTheme(color) {
+      currentAccent = color;
+      const root = document.documentElement;
+      root.style.setProperty('--accent', color);
+      const glow = color + '66';
+      root.style.setProperty('--accent-glow', glow);
 
-    logsTab.addEventListener('click', () => {
-      if (isUnlocked) {
-        switchTab('logs');
-        renderLogs();
+      // Update rain color
+      if (window.setRainColor) {
+        window.setRainColor(color);
       }
-    });
+
+      // Update active tab underline
+      document.querySelectorAll('.tab-btn.active').forEach(btn => {
+        btn.style.setProperty('--accent', color);
+      });
+
+      // Update glow container
+      const glowContainer = document.getElementById('glowContainer');
+      if (glowContainer) {
+        glowContainer.style.borderColor = color + '22';
+        glowContainer.style.boxShadow = `0 0 80px ${color}11`;
+      }
+
+      // Update swatches
+      document.querySelectorAll('.color-swatch').forEach(sw => {
+        sw.classList.toggle('active-swatch', sw.dataset.color === color);
+      });
+
+      // Update label
+      document.getElementById('currentThemeLabel').textContent = `Current: ${accentColors[color] || 'Custom'}`;
+
+      // Force re-render of gradient texts by reapplying
+      document.querySelectorAll('.hub-header h1').forEach(el => {
+        el.style.background = `linear-gradient(145deg, #c8ddff, ${color})`;
+        el.style.webkitBackgroundClip = 'text';
+        el.style.webkitTextFillColor = 'transparent';
+        el.style.backgroundClip = 'text';
+      });
+
+      // Save preference
+      try {
+        localStorage.setItem('mwp_theme', color);
+      } catch(e) {}
+    }
+
+    function loadSavedTheme() {
+      try {
+        const saved = localStorage.getItem('mwp_theme');
+        if (saved && accentColors[saved]) {
+          applyTheme(saved);
+        } else {
+          applyTheme('#6aafff');
+        }
+      } catch(e) {
+        applyTheme('#6aafff');
+      }
+    }
 
     // ------- TABS -------
     const tabs = document.querySelectorAll('.tab-btn');
@@ -1358,23 +1119,20 @@
       hub: document.getElementById('tab-hub'),
       shop: document.getElementById('tab-shop'),
       obf: document.getElementById('tab-obf'),
-      logs: document.getElementById('tab-logs')
+      settings: document.getElementById('tab-settings')
     };
 
     tabs.forEach(btn => {
       btn.addEventListener('click', function() {
         const tabId = this.dataset.tab;
-        if (tabId === 'logs' && !isUnlocked) {
-          showPasswordPrompt();
-          return;
-        }
         tabs.forEach(b => b.classList.remove('active'));
         this.classList.add('active');
         Object.keys(tabContents).forEach(key => {
           tabContents[key].classList.toggle('active', key === tabId);
         });
         if (tabId === 'obf') updateCounts();
-        if (tabId === 'logs' && isUnlocked) renderLogs();
+        // Re-apply theme to active tab elements
+        applyTheme(currentAccent);
       });
     });
 
@@ -1564,7 +1322,6 @@ loadstring(${nXorFn}(${nB64Fn}(${nData})))()`;
           `<i class="fas fa-key" style="margin-right:4px;"></i> ${optTuple.checked ? 'mode: tuple stream' : 'mode: base64 stub'}`;
         runBtn.disabled = false;
         updateCounts();
-        addLogEntry(src);
       });
     });
 
@@ -1593,23 +1350,50 @@ loadstring(${nXorFn}(${nB64Fn}(${nData})))()`;
       }, 1300);
     });
 
-    // ------- INIT -------
-    // Load logs from localStorage on page load
-    loadLogs();
+    // ------- SETTINGS: COLOR SWATCHES -------
+    document.querySelectorAll('.color-swatch').forEach(sw => {
+      sw.addEventListener('click', function() {
+        const color = this.dataset.color;
+        applyTheme(color);
+      });
+    });
 
-    // Update counts and log count display
+    // ------- SETTINGS: RAIN TOGGLE -------
+    document.querySelectorAll('input[name="rainToggle"]').forEach(radio => {
+      radio.addEventListener('change', function() {
+        if (this.value === 'on') {
+          window.setRainActive(true);
+        } else {
+          window.setRainActive(false);
+        }
+        try {
+          localStorage.setItem('mwp_rain', this.value);
+        } catch(e) {}
+      });
+    });
+
+    // Load rain preference
+    (function loadRainPref() {
+      try {
+        const pref = localStorage.getItem('mwp_rain');
+        if (pref === 'off') {
+          document.querySelector('input[name="rainToggle"][value="off"]').checked = true;
+          window.setRainActive(false);
+        } else {
+          document.querySelector('input[name="rainToggle"][value="on"]').checked = true;
+          window.setRainActive(true);
+        }
+      } catch(e) {}
+    })();
+
+    // ------- INIT -------
+    loadSavedTheme();
     updateCounts();
 
-    // If logs exist, update the count display
-    const countElement = document.getElementById('logCount');
-    if (countElement) {
-      countElement.textContent = `${logs.length} entries`;
-    }
+    // Apply theme to initial active tab
+    setTimeout(() => applyTheme(currentAccent), 50);
 
-    // If we have logs, render them (but only if logs tab is active)
-    // We'll render when the tab is opened
-
-    console.log('MWP HUB initialized. Logs loaded:', logs.length);
+    console.log('MWP HUB initialized (settings added)');
   </script>
 </body>
 </html>
