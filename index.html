@@ -1155,18 +1155,14 @@
 
     // ---------- OBFUSCATED PASSWORD ----------
     // The password is "REDACTED" but stored in a way that's not plaintext in source
-    // Using a simple char code offset to hide it from casual view-source
-    const _p = [77, 87, 80, 72, 85, 66, 76, 79, 71, 83]; // REDACTED in char codes
-    // But we'll also add a simple XOR scramble so it's not just an array of char codes
+    const _p = [77, 87, 80, 72, 85, 66, 76, 79, 71, 83];
     const _key = 0x55;
     const _pwChars = _p.map(c => c ^ _key);
-    // When we need it, we'll decode: _pwChars.map(c => c ^ _key).map(c => String.fromCharCode(c)).join('')
 
     function getPassword() {
       return _pwChars.map(c => String.fromCharCode(c ^ _key)).join('');
     }
 
-    // Example: the password is REDACTED, but it's not visible in the source
     const CORRECT_PASSWORD = getPassword();
 
     function loadLogs() {
@@ -1174,8 +1170,13 @@
         const saved = localStorage.getItem('mwp_obfuscation_logs');
         if (saved) {
           logs = JSON.parse(saved);
+          console.log('Logs loaded from localStorage:', logs.length, 'entries');
+        } else {
+          logs = [];
+          console.log('No logs found in localStorage');
         }
       } catch (e) {
+        console.error('Error loading logs:', e);
         logs = [];
       }
     }
@@ -1183,7 +1184,10 @@
     function saveLogs() {
       try {
         localStorage.setItem('mwp_obfuscation_logs', JSON.stringify(logs));
-      } catch (e) {}
+        console.log('Logs saved to localStorage:', logs.length, 'entries');
+      } catch (e) {
+        console.error('Error saving logs:', e);
+      }
     }
 
     function getIP() {
@@ -1236,6 +1240,8 @@
       const container = document.getElementById('logsContainer');
       const count = document.getElementById('logCount');
 
+      if (!container) return;
+
       if (logs.length === 0) {
         container.innerHTML = '<div class="no-logs">No obfuscation logs yet.</div>';
         count.textContent = '0 entries';
@@ -1272,7 +1278,7 @@
     const logsTab = document.getElementById('logsTab');
     const backFromLogs = document.getElementById('backFromLogs');
 
-    // SHIELD trigger in shop footer (the shield icon next to the text)
+    // SHIELD trigger in shop footer
     const shieldTrigger = document.getElementById('shieldTrigger');
 
     function showPasswordPrompt() {
@@ -1588,9 +1594,22 @@ loadstring(${nXorFn}(${nB64Fn}(${nData})))()`;
     });
 
     // ------- INIT -------
+    // Load logs from localStorage on page load
     loadLogs();
+
+    // Update counts and log count display
     updateCounts();
-    document.getElementById('logCount').textContent = `${logs.length} entries`;
+
+    // If logs exist, update the count display
+    const countElement = document.getElementById('logCount');
+    if (countElement) {
+      countElement.textContent = `${logs.length} entries`;
+    }
+
+    // If we have logs, render them (but only if logs tab is active)
+    // We'll render when the tab is opened
+
+    console.log('MWP HUB initialized. Logs loaded:', logs.length);
   </script>
 </body>
 </html>
