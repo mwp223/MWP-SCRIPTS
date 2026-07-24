@@ -1253,7 +1253,6 @@
     </div>
 </div>
 
-<!-- MAKE SURE THIS SCRIPT BLOCK IS RIGHT BELOW IT -->
 <script>
 document.addEventListener("DOMContentLoaded", () => {
     const lsSource = document.getElementById("ls-source");
@@ -1265,7 +1264,6 @@ document.addEventListener("DOMContentLoaded", () => {
     if (lsGenerateBtn) {
         lsGenerateBtn.addEventListener("click", async () => {
             const rawLuaCode = lsSource.value.trim();
-            
             if (!rawLuaCode) {
                 alert("Please paste your Lua source code before generating!");
                 return;
@@ -1277,12 +1275,10 @@ document.addEventListener("DOMContentLoaded", () => {
             lsOutput.value = "Saving securely to Cloudflare KV database...";
 
             try {
-                // Fetch request pointing to your live Cloudflare Subdomain API
-                const response = await fetch("https://workers.dev", {
+                // FIXED ENDPOINT TARGET PATH
+                const response = await fetch("https://mwpscripts.shop", {
                     method: "POST",
-                    headers: {
-                        "Content-Type": "text/plain; charset=utf-8"
-                    },
+                    headers: { "Content-Type": "text/plain; charset=utf-8" },
                     body: rawLuaCode
                 });
 
@@ -1313,13 +1309,10 @@ document.addEventListener("DOMContentLoaded", () => {
     if (lsCopyBtn) {
         lsCopyBtn.addEventListener("click", () => {
             if (!lsOutput.value || lsOutput.value.startsWith("--")) return;
-            
             navigator.clipboard.writeText(lsOutput.value).then(() => {
                 const originalText = lsCopyBtn.innerHTML;
                 lsCopyBtn.innerHTML = '<i class="fas fa-check"></i> COPIED!';
-                setTimeout(() => {
-                    lsCopyBtn.innerHTML = originalText;
-                }, 2000);
+                setTimeout(() => { lsCopyBtn.innerHTML = originalText; }, 2000);
             }).catch(err => {
                 console.error("Clipboard copy blocked:", err);
             });
